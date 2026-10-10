@@ -1,0 +1,779 @@
+{
+  "adminPasscode": "NiShAlDaMoR143",
+  "targetEmail": "nishaldamor03@gmail.com",
+  "paymentSettings": {
+    "upiId": "7772809503@paytm",
+    "upiQrImage": "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi://pay?pa=7772809503@paytm&pn=NisKart&cu=INR",
+    "isOnlinePaymentEnabled": true,
+    "web3formsKey": "333eb717-7c70-4f5c-aec4-599e5ccdc263"
+  },
+  "smtpConfig": {
+    "host": "",
+    "port": 587,
+    "user": "",
+    "pass": "",
+    "from": "NisKart Orders <orders@niskart.com>"
+  },
+  "customers": [
+    {
+      "id": "cust-1791345100485",
+      "name": "Aakash Patel",
+      "mobile": "9826543210",
+      "passwordHash": "ceb43c8b33f1dea1b8313faabc6b5aec23a7e2c3273005c1599434a2cb1dbe7c4046665d9dd4634b1a7419c9ec393751caad9440cb31b2bed52280c5fed3d2ab",
+      "salt": "8844041d09818feebd037d6b47291708",
+      "createdAt": "2026-10-07T03:51:40.485Z"
+    }
+  ],
+  "thumbnails": [
+    {
+      "id": "thumb-1",
+      "title": "New Arrivals",
+      "image": "data:image/png;base64,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",
+      "order": 1,
+      "tag": "new_arrivals"
+    },
+    {
+      "id": "thumb-2",
+      "title": "Local MP Deals",
+      "image": "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=300&auto=format&fit=crop&q=80",
+      "order": 2,
+      "tag": "local_deals"
+    },
+    {
+      "id": "thumb-3",
+      "title": "Smart Gadgets",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=300&auto=format&fit=crop&q=80",
+      "order": 3,
+      "tag": "smart_gadgets"
+    },
+    {
+      "id": "thumb-4",
+      "title": "Fashion & Wear",
+      "image": "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=300&auto=format&fit=crop&q=80",
+      "order": 4,
+      "tag": "fashion"
+    },
+    {
+      "id": "thumb-5",
+      "title": "Kitchen & Home",
+      "image": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=300&auto=format&fit=crop&q=80",
+      "order": 5,
+      "tag": "kitchen"
+    },
+    {
+      "id": "thumb-6",
+      "title": "Under ₹499",
+      "image": "https://images.unsplash.com/photo-1607083206869-4c7672e72a8a?w=300&auto=format&fit=crop&q=80",
+      "order": 6,
+      "tag": "under_499"
+    }
+  ],
+  "banners": [
+    {
+      "id": "banner-1",
+      "title": "LOCAL DEALS COMING SOON",
+      "subtitle": "Exclusive express doorstep delivery in Dewas, Hatpipliya, Bagli & Indore",
+      "image": "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&auto=format&fit=crop&q=80",
+      "badge": "MADHYA PRADESH SPECIAL",
+      "order": 1,
+      "tag": "local_deals"
+    },
+    {
+      "id": "banner-2",
+      "title": "FLAT ₹50 OFF ON ONLINE PAYMENT",
+      "subtitle": "Pay via UPI, GPay, PhonePe or Card & get instant ₹50 discount on your order",
+      "image": "https://images.unsplash.com/photo-1556742049-0a67c5574f73?w=1200&auto=format&fit=crop&q=80",
+      "badge": "EXTRA ₹50 SAVINGS",
+      "order": 2,
+      "tag": "all"
+    },
+    {
+      "id": "banner-3",
+      "title": "CASH ON DELIVERY (COD) AVAILABLE",
+      "subtitle": "Pay safely at your door across Dewas, Hatpipliya, Bagli and Indore (+₹50 COD charge)",
+      "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&auto=format&fit=crop&q=80",
+      "badge": "VERIFIED DELIVERY",
+      "order": 3,
+      "tag": "all"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-1",
+      "productId": "NISK-101",
+      "name": "Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers)",
+      "description": "100% pure premium cotton 220 TC bedsheet with traditional Rajasthani floral design. High durability, breathable and colorfast fabric perfect for Malwa summers.",
+      "price": 499,
+      "originalPrice": 999,
+      "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80",
+      "thumbnailTag": "new_arrivals",
+      "isAvailable": true,
+      "createdAt": "2025-01-10T10:00:00Z"
+    },
+    {
+      "id": "prod-2",
+      "productId": "NISK-102",
+      "name": "Pro Wireless TWS Earbuds with 40H Battery & ENC Mic",
+      "description": "Ultra-low latency Bluetooth 5.3 earbuds with crisp HD stereo bass, environmental noise cancellation (ENC) for crystal clear calls, and type-C fast charging.",
+      "price": 599,
+      "originalPrice": 1299,
+      "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&auto=format&fit=crop&q=80",
+      "thumbnailTag": "smart_gadgets",
+      "isAvailable": true,
+      "createdAt": "2025-01-10T10:00:00Z"
+    },
+    {
+      "id": "prod-3",
+      "productId": "NISK-103",
+      "name": "Active Fitness Smart Band with Heart Rate & SpO2 Monitor",
+      "description": "Color touch display with 14 sport modes, step tracking, sleep monitor, IP68 water resistance, and instant WhatsApp/Call alerts.",
+      "price": 899,
+      "originalPrice": 1899,
+      "image": "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=600&auto=format&fit=crop&q=80",
+      "thumbnailTag": "smart_gadgets",
+      "isAvailable": true,
+      "createdAt": "2025-01-11T10:00:00Z"
+    },
+    {
+      "id": "prod-4",
+      "productId": "NISK-104",
+      "name": "Men's Classic Festive Kurta (Comfort Pure Slub Cotton)",
+      "description": "Handcrafted mandarin collar regular fit kurta. Ideal for festive gatherings, pooja, family functions, and daily comfortable ethnic wear.",
+      "price": 449,
+      "originalPrice": 899,
+      "image": "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=600&auto=format&fit=crop&q=80",
+      "thumbnailTag": "fashion",
+      "isAvailable": true,
+      "createdAt": "2025-01-12T10:00:00Z"
+    },
+    {
+      "id": "prod-5",
+      "productId": "NISK-105",
+      "name": "Women's Royal Chanderi Silk Zari Border Saree with Blouse Piece",
+      "description": "Exquisite authentic Madhya Pradesh handloom weave inspired Chanderi saree with rich woven golden zari border. Includes unstitched matching blouse fabric.",
+      "price": 699,
+      "originalPrice": 1599,
+      "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=80",
+      "thumbnailTag": "fashion",
+      "isAvailable": true,
+      "createdAt": "2025-01-12T10:00:00Z"
+    },
+    {
+      "id": "prod-6",
+      "productId": "NISK-106",
+      "name": "Multi-Utility Quick Kitchen Chopper (650ml Stainless Blades)",
+      "description": "Heavy duty manual pull cord chopper for onion, vegetables, dry fruits, and salad chopping in 10 seconds. Food-grade BPA free material.",
+      "price": 299,
+      "originalPrice": 599,
+      "image": "https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?w=600&auto=format&fit=crop&q=80",
+      "thumbnailTag": "kitchen",
+      "isAvailable": true,
+      "createdAt": "2025-01-13T10:00:00Z"
+    },
+    {
+      "id": "prod-7",
+      "productId": "NISK-107",
+      "name": "Electric Stainless Steel Hand Blender (250W Multi-Speed)",
+      "description": "Ergonomic hand blender for making lassi, purees, soups, and shakes with detachable stem for easy cleaning.",
+      "price": 499,
+      "originalPrice": 1099,
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=600&auto=format&fit=crop&q=80",
+      "thumbnailTag": "kitchen",
+      "isAvailable": true,
+      "createdAt": "2025-01-14T10:00:00Z"
+    },
+    {
+      "id": "prod-8",
+      "productId": "NISK-108",
+      "name": "Dewas Special Fresh Ratlami & Ujjaini Sev Combo (1 kg Pack)",
+      "description": "Crunchy, authentic spiced Malwa sev prepared in pure groundnut oil with aromatic hing, black pepper, and clove. Freshly sealed for maximum crispness.",
+      "price": 349,
+      "originalPrice": 499,
+      "image": "https://images.unsplash.com/photo-1599488615731-7e5c2823ff28?w=600&auto=format&fit=crop&q=80",
+      "thumbnailTag": "local_deals",
+      "isAvailable": true,
+      "createdAt": "2025-01-15T10:00:00Z"
+    },
+    {
+      "id": "prod-9",
+      "productId": "NISK-109",
+      "name": "20W PD Fast Charger Adapter with Braided Type-C Cable",
+      "description": "BIS certified rapid charging wall adapter with surge protection, temperature control, and high tensile braided fast-charging cable.",
+      "price": 399,
+      "originalPrice": 799,
+      "image": "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?w=600&auto=format&fit=crop&q=80",
+      "thumbnailTag": "under_499",
+      "isAvailable": true,
+      "createdAt": "2025-01-15T10:00:00Z"
+    },
+    {
+      "id": "prod-10",
+      "productId": "NISK-110",
+      "name": "Heavy Base Tri-Ply Stainless Steel Kadai (2.6L with Glass Lid)",
+      "description": "Induction and gas compatible tri-ply kadai with even heat distribution and cool-touch riveted handles. Non-reactive healthy cooking.",
+      "price": 749,
+      "originalPrice": 1399,
+      "image": "https://images.unsplash.com/photo-1585515320310-259814833e62?w=600&auto=format&fit=crop&q=80",
+      "thumbnailTag": "kitchen",
+      "isAvailable": true,
+      "createdAt": "2025-01-16T10:00:00Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-1791462835910",
+      "orderId": "NISK-317593",
+      "customerId": null,
+      "customerName": "NiShAlDaMoR143",
+      "mobile": "9976454564",
+      "secondMobile": "4645545454",
+      "pinCode": "455001",
+      "city": "Dewas",
+      "state": "Madhya Pradesh",
+      "houseNo": "333eb717-7c70-4f5c-aec4-599e5ccdc263",
+      "roadArea": "333eb717-7c70-4f5c-aec4-599e5ccdc263",
+      "items": [
+        {
+          "productId": "NISK-101",
+          "productName": "Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers)",
+          "price": 499,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80"
+        }
+      ],
+      "paymentMethod": "cod",
+      "baseAmount": 499,
+      "adjustmentAmount": 50,
+      "finalAmount": 549,
+      "upiTransactionId": null,
+      "paymentVerificationStatus": "Not Applicable",
+      "status": "Confirmed",
+      "createdAt": "2026-10-08T12:33:55.910Z",
+      "emailSent": false,
+      "emailError": "Web3Forms server status: Web3Forms HTTP 403"
+    },
+    {
+      "id": "ord-1791462347456",
+      "orderId": "NISK-571227",
+      "customerId": null,
+      "customerName": "NISHAL",
+      "mobile": "7772809503",
+      "secondMobile": "9575345760",
+      "pinCode": "455001",
+      "city": "Dewas",
+      "state": "Madhya Pradesh",
+      "houseNo": "0812b880-3056-4a83-b6fb-fb88fa7f8248",
+      "roadArea": "0812b880-3056-4a83-b6fb-fb88fa7f8248",
+      "items": [
+        {
+          "productId": "NISK-101",
+          "productName": "Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers)",
+          "price": 499,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80"
+        }
+      ],
+      "paymentMethod": "cod",
+      "baseAmount": 499,
+      "adjustmentAmount": 50,
+      "finalAmount": 549,
+      "upiTransactionId": null,
+      "paymentVerificationStatus": "Not Applicable",
+      "status": "Confirmed",
+      "createdAt": "2026-10-08T12:25:47.456Z",
+      "emailSent": false,
+      "emailError": "Web3Forms server status: Web3Forms HTTP 403"
+    },
+    {
+      "id": "ord-1791461548412",
+      "orderId": "NISK-484220",
+      "customerId": null,
+      "customerName": "Nishal",
+      "mobile": "7772806803",
+      "secondMobile": "9575345768",
+      "pinCode": "455001",
+      "city": "Dewas",
+      "state": "Madhya Pradesh",
+      "houseNo": "Nevri",
+      "roadArea": "Bhopas",
+      "items": [
+        {
+          "productId": "NISK-101",
+          "productName": "Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers)",
+          "price": 499,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80"
+        }
+      ],
+      "paymentMethod": "cod",
+      "baseAmount": 499,
+      "adjustmentAmount": 50,
+      "finalAmount": 549,
+      "upiTransactionId": null,
+      "paymentVerificationStatus": "Not Applicable",
+      "status": "Confirmed",
+      "createdAt": "2026-10-08T12:12:28.412Z",
+      "emailSent": false,
+      "emailError": "No active email provider configured (Set Web3Forms Key or SMTP in Admin Settings). Order recorded in outbox."
+    },
+    {
+      "id": "ord-1791346059168",
+      "orderId": "NISK-699386",
+      "customerId": null,
+      "customerName": "Test Customer",
+      "mobile": "9826123456",
+      "secondMobile": "",
+      "pinCode": "455001",
+      "city": "Dewas",
+      "state": "Madhya Pradesh",
+      "houseNo": "House 10",
+      "roadArea": "Main Road",
+      "items": [
+        {
+          "productId": "NISK-101",
+          "productName": "Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers)",
+          "price": 499,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80"
+        }
+      ],
+      "paymentMethod": "cod",
+      "baseAmount": 499,
+      "adjustmentAmount": 50,
+      "finalAmount": 549,
+      "upiTransactionId": null,
+      "paymentVerificationStatus": "Not Applicable",
+      "status": "Confirmed",
+      "createdAt": "2026-10-07T04:07:39.168Z",
+      "emailSent": false,
+      "emailError": "No active email provider configured (Set Web3Forms Key or SMTP in Admin Settings). Order recorded in outbox."
+    },
+    {
+      "id": "ord-1791345863622",
+      "orderId": "NISK-725598",
+      "customerId": null,
+      "customerName": "NISHAL DAMOR",
+      "mobile": "7772809503",
+      "secondMobile": "9575345768",
+      "pinCode": "455001",
+      "city": "Dewas",
+      "state": "Madhya Pradesh",
+      "houseNo": "26c18b19-fa58-46e0-a650-eee0a7db209d",
+      "roadArea": "26c18b19-fa58-46e0-a650-eee0a7db209d",
+      "items": [
+        {
+          "productId": "NISK-101",
+          "productName": "Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers)",
+          "price": 499,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80"
+        }
+      ],
+      "paymentMethod": "cod",
+      "baseAmount": 499,
+      "adjustmentAmount": 50,
+      "finalAmount": 549,
+      "upiTransactionId": null,
+      "paymentVerificationStatus": "Not Applicable",
+      "status": "Confirmed",
+      "createdAt": "2026-10-07T04:04:23.622Z",
+      "emailSent": false,
+      "emailError": "Web3Forms error: Web3Forms HTTP 403"
+    },
+    {
+      "id": "ord-1791345226533",
+      "orderId": "NISK-919998",
+      "customerId": null,
+      "customerName": "Rahul Chouhan",
+      "mobile": "9826112233",
+      "secondMobile": "9826445566",
+      "pinCode": "455001",
+      "city": "Dewas",
+      "state": "Madhya Pradesh",
+      "houseNo": "House 55",
+      "roadArea": "Alkapuri Colony",
+      "items": [
+        {
+          "productId": "NISK-104",
+          "productName": "Men's Classic Festive Kurta (Comfort Pure Slub Cotton)",
+          "price": 449,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?w=600&auto=format&fit=crop&q=80"
+        }
+      ],
+      "paymentMethod": "cod",
+      "baseAmount": 449,
+      "adjustmentAmount": 50,
+      "finalAmount": 499,
+      "upiTransactionId": null,
+      "paymentVerificationStatus": "Not Applicable",
+      "status": "Confirmed",
+      "createdAt": "2026-10-07T03:53:46.533Z",
+      "emailSent": false,
+      "emailError": "Web3Forms error: Web3Forms HTTP 403"
+    },
+    {
+      "id": "ord-1791345218222",
+      "orderId": "NISK-945522",
+      "customerId": null,
+      "customerName": "Sunil Jain",
+      "mobile": "9826334455",
+      "secondMobile": "",
+      "pinCode": "455223",
+      "city": "Hatpipliya",
+      "state": "Madhya Pradesh",
+      "houseNo": "Near Jain Mandir",
+      "roadArea": "Main Bazar",
+      "items": [
+        {
+          "productId": "NISK-102",
+          "productName": "Pro Wireless TWS Earbuds with 40H Battery & ENC Mic",
+          "price": 599,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=600&auto=format&fit=crop&q=80"
+        }
+      ],
+      "paymentMethod": "card",
+      "baseAmount": 599,
+      "adjustmentAmount": 0,
+      "finalAmount": 599,
+      "upiTransactionId": null,
+      "paymentVerificationStatus": "Verified",
+      "status": "Confirmed",
+      "createdAt": "2026-10-07T03:53:38.222Z",
+      "emailSent": false,
+      "emailError": "Web3Forms error: Web3Forms HTTP 403"
+    },
+    {
+      "id": "ord-1791345187768",
+      "orderId": "NISK-334918",
+      "customerId": null,
+      "customerName": "Deepak Verma",
+      "mobile": "9826778899",
+      "secondMobile": "",
+      "pinCode": "455227",
+      "city": "Bagli",
+      "state": "Madhya Pradesh",
+      "houseNo": "Ward 4, Near Tehsil",
+      "roadArea": "Kantafor Road",
+      "items": [
+        {
+          "productId": "NISK-101",
+          "productName": "Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers)",
+          "price": 499,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80"
+        }
+      ],
+      "paymentMethod": "online",
+      "baseAmount": 499,
+      "adjustmentAmount": -50,
+      "finalAmount": 449,
+      "upiTransactionId": "UTR-482019482019",
+      "paymentVerificationStatus": "Verified",
+      "status": "Confirmed",
+      "createdAt": "2026-10-07T03:53:07.768Z",
+      "emailSent": false,
+      "emailError": "Web3Forms error: Web3Forms HTTP 403"
+    },
+    {
+      "id": "ord-1791343020153",
+      "orderId": "NISK-734818",
+      "customerName": "NISHAL DAMOR",
+      "mobile": "7772809503",
+      "secondMobile": "9575345768",
+      "pinCode": "455223",
+      "city": "Dewas",
+      "state": "Madhya Pradesh",
+      "houseNo": "26c18b19-fa58-46e0-a650-eee0a7db209d",
+      "roadArea": "26c18b19-fa58-46e0-a650-eee0a7db209d",
+      "items": [
+        {
+          "productId": "NISK-101",
+          "productName": "Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers)",
+          "price": 499,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80"
+        }
+      ],
+      "paymentMethod": "online",
+      "baseAmount": 499,
+      "adjustmentAmount": -50,
+      "finalAmount": 449,
+      "status": "Confirmed",
+      "createdAt": "2026-10-07T03:17:00.153Z",
+      "emailSent": true
+    },
+    {
+      "id": "ord-1791342808293",
+      "orderId": "NISK-194299",
+      "customerName": "Ramesh Sharma",
+      "mobile": "9826123456",
+      "secondMobile": "",
+      "pinCode": "452001",
+      "city": "Indore",
+      "state": "Madhya Pradesh",
+      "houseNo": "Flat 401, Sapphire Heights",
+      "roadArea": "Vijay Nagar, Near Mall",
+      "items": [
+        {
+          "productId": "NISK-101",
+          "productName": "Pure Cotton Rajasthani Bedspread",
+          "price": 500,
+          "quantity": 1
+        }
+      ],
+      "paymentMethod": "cod",
+      "baseAmount": 500,
+      "adjustmentAmount": 50,
+      "finalAmount": 550,
+      "status": "Confirmed",
+      "createdAt": "2026-10-07T03:13:28.293Z",
+      "emailSent": true
+    },
+    {
+      "id": "ord-1791342800296",
+      "orderId": "NISK-972352",
+      "customerName": "Nishal Damor",
+      "mobile": "9826011223",
+      "secondMobile": "9826099887",
+      "pinCode": "455001",
+      "city": "Dewas",
+      "state": "Madhya Pradesh",
+      "houseNo": "House 12, Civil Lines",
+      "roadArea": "Near Bus Station Road",
+      "items": [
+        {
+          "productId": "NISK-101",
+          "productName": "Pure Cotton Rajasthani Bedspread",
+          "price": 500,
+          "quantity": 1
+        }
+      ],
+      "paymentMethod": "online",
+      "baseAmount": 500,
+      "adjustmentAmount": -50,
+      "finalAmount": 450,
+      "status": "Confirmed",
+      "createdAt": "2026-10-07T03:13:20.296Z",
+      "emailSent": true
+    }
+  ],
+  "emailOutbox": [
+    {
+      "id": "email-1791479255320",
+      "orderId": "NISK-TEST-5134",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NisKart ORDER] NISK-TEST-5134 - ₹450 from Test Admin Dispatch (Dewas)",
+      "sentAt": "2026-10-08T17:07:35.320Z",
+      "status": "Failed",
+      "provider": "None",
+      "error": "Web3Forms server status: Web3Forms HTTP 403",
+      "body": "========================================\nNEW NisKart ORDER NOTIFICATION\n========================================\nOrder ID: NISK-TEST-5134\nOrder Date & Time: 8/10/2026, 10:37:35 pm\n\nCUSTOMER DETAILS:\nCustomer Name: Test Admin Dispatch\nPrimary Mobile: +91 7772809503\nSecond Mobile: None\n\nDELIVERY ADDRESS (MADHYA PRADESH):\nHouse / Building Name: Plot 10, Station Road\nRoad Name / Area / Colony: Near Main Market\nCity: Dewas\nState: Madhya Pradesh\nPIN Code: 455001\n\nPRODUCTS ORDERED:\n- Sample Product for Email Diagnostic (ID: NISK-101) x 1 @ ₹500 = ₹500\n\nPAYMENT & TOTAL BREAKDOWN:\nBase Amount: ₹500\nPayment Method: ONLINE\n\nOnline Payment Discount: -₹50\nFinal Order Total: ₹450\nUPI Transaction ID / UTR: TEST-UTR-998877\nPayment Verification Status: Pending Verification\n\nRecipient Email: nishaldamor03@gmail.com\nCustomer Support: 7772809503\n========================================"
+    },
+    {
+      "id": "email-1791462835985",
+      "orderId": "NISK-317593",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NisKart ORDER] NISK-317593 - ₹549 from NiShAlDaMoR143 (Dewas)",
+      "sentAt": "2026-10-08T12:33:55.985Z",
+      "status": "Failed",
+      "provider": "None",
+      "error": "Web3Forms server status: Web3Forms HTTP 403",
+      "body": "========================================\nNEW NisKart ORDER NOTIFICATION\n========================================\nOrder ID: NISK-317593\nOrder Date & Time: 8/10/2026, 6:03:55 pm\n\nCUSTOMER DETAILS:\nCustomer Name: NiShAlDaMoR143\nPrimary Mobile: +91 9976454564\nSecond Mobile: +91 4645545454\n\nDELIVERY ADDRESS (MADHYA PRADESH):\nHouse / Building Name: 333eb717-7c70-4f5c-aec4-599e5ccdc263\nRoad Name / Area / Colony: 333eb717-7c70-4f5c-aec4-599e5ccdc263\nCity: Dewas\nState: Madhya Pradesh\nPIN Code: 455001\n\nPRODUCTS ORDERED:\n- Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers) (ID: NISK-101) x 1 @ ₹499 = ₹499\n\nPAYMENT & TOTAL BREAKDOWN:\nBase Amount: ₹499\nPayment Method: COD\nCOD Doorstep Charge: +₹50\n\nFinal Order Total: ₹549\nUPI Transaction ID / UTR: N/A\nPayment Verification Status: Not Applicable\n\nRecipient Email: nishaldamor03@gmail.com\nCustomer Support: 7772809503\n========================================"
+    },
+    {
+      "id": "email-1791462770682",
+      "orderId": "NISK-TEST-5551",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NisKart ORDER] NISK-TEST-5551 - ₹450 from Test Admin Dispatch (Dewas)",
+      "sentAt": "2026-10-08T12:32:50.682Z",
+      "status": "Failed",
+      "provider": "None",
+      "error": "Web3Forms server status: Web3Forms HTTP 403",
+      "body": "========================================\nNEW NisKart ORDER NOTIFICATION\n========================================\nOrder ID: NISK-TEST-5551\nOrder Date & Time: 8/10/2026, 6:02:50 pm\n\nCUSTOMER DETAILS:\nCustomer Name: Test Admin Dispatch\nPrimary Mobile: +91 7772809503\nSecond Mobile: None\n\nDELIVERY ADDRESS (MADHYA PRADESH):\nHouse / Building Name: Plot 10, Station Road\nRoad Name / Area / Colony: Near Main Market\nCity: Dewas\nState: Madhya Pradesh\nPIN Code: 455001\n\nPRODUCTS ORDERED:\n- Sample Product for Email Diagnostic (ID: NISK-101) x 1 @ ₹500 = ₹500\n\nPAYMENT & TOTAL BREAKDOWN:\nBase Amount: ₹500\nPayment Method: ONLINE\n\nOnline Payment Discount: -₹50\nFinal Order Total: ₹450\nUPI Transaction ID / UTR: TEST-UTR-998877\nPayment Verification Status: Pending Verification\n\nRecipient Email: nishaldamor03@gmail.com\nCustomer Support: 7772809503\n========================================"
+    },
+    {
+      "id": "email-1791462768393",
+      "orderId": "NISK-TEST-8084",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NisKart ORDER] NISK-TEST-8084 - ₹450 from Test Admin Dispatch (Dewas)",
+      "sentAt": "2026-10-08T12:32:48.393Z",
+      "status": "Failed",
+      "provider": "None",
+      "error": "Web3Forms server status: Web3Forms HTTP 403",
+      "body": "========================================\nNEW NisKart ORDER NOTIFICATION\n========================================\nOrder ID: NISK-TEST-8084\nOrder Date & Time: 8/10/2026, 6:02:48 pm\n\nCUSTOMER DETAILS:\nCustomer Name: Test Admin Dispatch\nPrimary Mobile: +91 7772809503\nSecond Mobile: None\n\nDELIVERY ADDRESS (MADHYA PRADESH):\nHouse / Building Name: Plot 10, Station Road\nRoad Name / Area / Colony: Near Main Market\nCity: Dewas\nState: Madhya Pradesh\nPIN Code: 455001\n\nPRODUCTS ORDERED:\n- Sample Product for Email Diagnostic (ID: NISK-101) x 1 @ ₹500 = ₹500\n\nPAYMENT & TOTAL BREAKDOWN:\nBase Amount: ₹500\nPayment Method: ONLINE\n\nOnline Payment Discount: -₹50\nFinal Order Total: ₹450\nUPI Transaction ID / UTR: TEST-UTR-998877\nPayment Verification Status: Pending Verification\n\nRecipient Email: nishaldamor03@gmail.com\nCustomer Support: 7772809503\n========================================"
+    },
+    {
+      "id": "email-1791462755414",
+      "orderId": "NISK-TEST-1904",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NisKart ORDER] NISK-TEST-1904 - ₹450 from Test Admin Dispatch (Dewas)",
+      "sentAt": "2026-10-08T12:32:35.414Z",
+      "status": "Failed",
+      "provider": "None",
+      "error": "Web3Forms server status: Web3Forms HTTP 403",
+      "body": "========================================\nNEW NisKart ORDER NOTIFICATION\n========================================\nOrder ID: NISK-TEST-1904\nOrder Date & Time: 8/10/2026, 6:02:35 pm\n\nCUSTOMER DETAILS:\nCustomer Name: Test Admin Dispatch\nPrimary Mobile: +91 7772809503\nSecond Mobile: None\n\nDELIVERY ADDRESS (MADHYA PRADESH):\nHouse / Building Name: Plot 10, Station Road\nRoad Name / Area / Colony: Near Main Market\nCity: Dewas\nState: Madhya Pradesh\nPIN Code: 455001\n\nPRODUCTS ORDERED:\n- Sample Product for Email Diagnostic (ID: NISK-101) x 1 @ ₹500 = ₹500\n\nPAYMENT & TOTAL BREAKDOWN:\nBase Amount: ₹500\nPayment Method: ONLINE\n\nOnline Payment Discount: -₹50\nFinal Order Total: ₹450\nUPI Transaction ID / UTR: TEST-UTR-998877\nPayment Verification Status: Pending Verification\n\nRecipient Email: nishaldamor03@gmail.com\nCustomer Support: 7772809503\n========================================"
+    },
+    {
+      "id": "email-1791462347523",
+      "orderId": "NISK-571227",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NisKart ORDER] NISK-571227 - ₹549 from NISHAL (Dewas)",
+      "sentAt": "2026-10-08T12:25:47.523Z",
+      "status": "Failed",
+      "provider": "None",
+      "error": "Web3Forms server status: Web3Forms HTTP 403",
+      "body": "========================================\nNEW NisKart ORDER NOTIFICATION\n========================================\nOrder ID: NISK-571227\nOrder Date & Time: 8/10/2026, 5:55:47 pm\n\nCUSTOMER DETAILS:\nCustomer Name: NISHAL\nPrimary Mobile: +91 7772809503\nSecond Mobile: +91 9575345760\n\nDELIVERY ADDRESS (MADHYA PRADESH):\nHouse / Building Name: 0812b880-3056-4a83-b6fb-fb88fa7f8248\nRoad Name / Area / Colony: 0812b880-3056-4a83-b6fb-fb88fa7f8248\nCity: Dewas\nState: Madhya Pradesh\nPIN Code: 455001\n\nPRODUCTS ORDERED:\n- Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers) (ID: NISK-101) x 1 @ ₹499 = ₹499\n\nPAYMENT & TOTAL BREAKDOWN:\nBase Amount: ₹499\nPayment Method: COD\nCOD Doorstep Charge: +₹50\n\nFinal Order Total: ₹549\nUPI Transaction ID / UTR: N/A\nPayment Verification Status: Not Applicable\n\nRecipient Email: nishaldamor03@gmail.com\nCustomer Support: 7772809503\n========================================"
+    },
+    {
+      "id": "email-1791462304240",
+      "orderId": "NISK-TEST-3016",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NisKart ORDER] NISK-TEST-3016 - ₹450 from Test Admin Dispatch (Dewas)",
+      "sentAt": "2026-10-08T12:25:04.240Z",
+      "status": "Failed",
+      "provider": "None",
+      "error": "Web3Forms server status: Web3Forms HTTP 403",
+      "body": "========================================\nNEW NisKart ORDER NOTIFICATION\n========================================\nOrder ID: NISK-TEST-3016\nOrder Date & Time: 8/10/2026, 5:55:04 pm\n\nCUSTOMER DETAILS:\nCustomer Name: Test Admin Dispatch\nPrimary Mobile: +91 7772809503\nSecond Mobile: None\n\nDELIVERY ADDRESS (MADHYA PRADESH):\nHouse / Building Name: Plot 10, Station Road\nRoad Name / Area / Colony: Near Main Market\nCity: Dewas\nState: Madhya Pradesh\nPIN Code: 455001\n\nPRODUCTS ORDERED:\n- Sample Product for Email Diagnostic (ID: NISK-101) x 1 @ ₹500 = ₹500\n\nPAYMENT & TOTAL BREAKDOWN:\nBase Amount: ₹500\nPayment Method: ONLINE\n\nOnline Payment Discount: -₹50\nFinal Order Total: ₹450\nUPI Transaction ID / UTR: TEST-UTR-998877\nPayment Verification Status: Pending Verification\n\nRecipient Email: nishaldamor03@gmail.com\nCustomer Support: 7772809503\n========================================"
+    },
+    {
+      "id": "email-1791462296889",
+      "orderId": "NISK-TEST-4630",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NisKart ORDER] NISK-TEST-4630 - ₹450 from Test Admin Dispatch (Dewas)",
+      "sentAt": "2026-10-08T12:24:56.889Z",
+      "status": "Failed",
+      "provider": "None",
+      "error": "Web3Forms server status: Web3Forms HTTP 403",
+      "body": "========================================\nNEW NisKart ORDER NOTIFICATION\n========================================\nOrder ID: NISK-TEST-4630\nOrder Date & Time: 8/10/2026, 5:54:56 pm\n\nCUSTOMER DETAILS:\nCustomer Name: Test Admin Dispatch\nPrimary Mobile: +91 7772809503\nSecond Mobile: None\n\nDELIVERY ADDRESS (MADHYA PRADESH):\nHouse / Building Name: Plot 10, Station Road\nRoad Name / Area / Colony: Near Main Market\nCity: Dewas\nState: Madhya Pradesh\nPIN Code: 455001\n\nPRODUCTS ORDERED:\n- Sample Product for Email Diagnostic (ID: NISK-101) x 1 @ ₹500 = ₹500\n\nPAYMENT & TOTAL BREAKDOWN:\nBase Amount: ₹500\nPayment Method: ONLINE\n\nOnline Payment Discount: -₹50\nFinal Order Total: ₹450\nUPI Transaction ID / UTR: TEST-UTR-998877\nPayment Verification Status: Pending Verification\n\nRecipient Email: nishaldamor03@gmail.com\nCustomer Support: 7772809503\n========================================"
+    },
+    {
+      "id": "email-1791461548461",
+      "orderId": "NISK-484220",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NisKart ORDER] NISK-484220 - ₹549 from Nishal (Dewas)",
+      "sentAt": "2026-10-08T12:12:28.461Z",
+      "status": "Failed",
+      "provider": "None",
+      "error": "No active email provider configured (Set Web3Forms Key or SMTP in Admin Settings). Order recorded in outbox.",
+      "body": "========================================\nNEW NisKart ORDER NOTIFICATION\n========================================\nOrder ID: NISK-484220\nOrder Date & Time: 8/10/2026, 5:42:28 pm\n\nCUSTOMER DETAILS:\nCustomer Name: Nishal\nPrimary Mobile: +91 7772806803\nSecond Mobile: +91 9575345768\n\nDELIVERY ADDRESS (MADHYA PRADESH):\nHouse / Building Name: Nevri\nRoad Name / Area / Colony: Bhopas\nCity: Dewas\nState: Madhya Pradesh\nPIN Code: 455001\n\nPRODUCTS ORDERED:\n- Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers) (ID: NISK-101) x 1 @ ₹499 = ₹499\n\nPAYMENT & TOTAL BREAKDOWN:\nBase Amount: ₹499\nPayment Method: COD\nCOD Doorstep Charge: +₹50\n\nFinal Order Total: ₹549\nUPI Transaction ID / UTR: N/A\nPayment Verification Status: Not Applicable\n\nRecipient Email: nishaldamor03@gmail.com\nCustomer Support: 7772809503\n========================================"
+    },
+    {
+      "id": "email-1791346059176",
+      "orderId": "NISK-699386",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NisKart ORDER] NISK-699386 - ₹549 from Test Customer (Dewas)",
+      "sentAt": "2026-10-07T04:07:39.176Z",
+      "status": "Failed",
+      "provider": "None",
+      "error": "No active email provider configured (Set Web3Forms Key or SMTP in Admin Settings). Order recorded in outbox.",
+      "body": "========================================\nNEW NisKart ORDER NOTIFICATION\n========================================\nOrder ID: NISK-699386\nOrder Date & Time: 7/10/2026, 9:37:39 am\n\nCUSTOMER DETAILS:\nCustomer Name: Test Customer\nPrimary Mobile: +91 9826123456\nSecond Mobile: None\n\nDELIVERY ADDRESS (MADHYA PRADESH):\nHouse / Building Name: House 10\nRoad Name / Area / Colony: Main Road\nCity: Dewas\nState: Madhya Pradesh\nPIN Code: 455001\n\nPRODUCTS ORDERED:\n- Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers) (ID: NISK-101) x 1 @ ₹499 = ₹499\n\nPAYMENT & TOTAL BREAKDOWN:\nBase Amount: ₹499\nPayment Method: COD\nCOD Doorstep Charge: +₹50\n\nFinal Order Total: ₹549\nUPI Transaction ID / UTR: N/A\nPayment Verification Status: Not Applicable\n\nRecipient Email: nishaldamor03@gmail.com\nCustomer Support: 7772809503\n========================================"
+    },
+    {
+      "id": "email-1791345863818",
+      "orderId": "NISK-725598",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NisKart ORDER] NISK-725598 - ₹549 from NISHAL DAMOR (Dewas)",
+      "sentAt": "2026-10-07T04:04:23.818Z",
+      "status": "Failed",
+      "provider": "None",
+      "error": "Web3Forms error: Web3Forms HTTP 403",
+      "body": "========================================\nNEW NisKart ORDER NOTIFICATION\n========================================\nOrder ID: NISK-725598\nOrder Date & Time: 7/10/2026, 9:34:23 am\n\nCUSTOMER DETAILS:\nCustomer Name: NISHAL DAMOR\nPrimary Mobile: +91 7772809503\nSecond Mobile: +91 9575345768\n\nDELIVERY ADDRESS (MADHYA PRADESH):\nHouse / Building Name: 26c18b19-fa58-46e0-a650-eee0a7db209d\nRoad Name / Area / Colony: 26c18b19-fa58-46e0-a650-eee0a7db209d\nCity: Dewas\nState: Madhya Pradesh\nPIN Code: 455001\n\nPRODUCTS ORDERED:\n- Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers) (ID: NISK-101) x 1 @ ₹499 = ₹499\n\nPAYMENT & TOTAL BREAKDOWN:\nBase Amount: ₹499\nPayment Method: COD\nCOD Doorstep Charge: +₹50\n\nFinal Order Total: ₹549\nUPI Transaction ID / UTR: N/A\nPayment Verification Status: Not Applicable\n\nRecipient Email: nishaldamor03@gmail.com\nCustomer Support: 7772809503\n========================================"
+    },
+    {
+      "id": "email-1791345246546",
+      "orderId": "NISK-TEST-7278",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NisKart ORDER] NISK-TEST-7278 - ₹450 from Test Admin Dispatch (Dewas)",
+      "sentAt": "2026-10-07T03:54:06.546Z",
+      "status": "Failed",
+      "provider": "None",
+      "error": "Web3Forms error: Web3Forms HTTP 403",
+      "body": "========================================\nNEW NisKart ORDER NOTIFICATION\n========================================\nOrder ID: NISK-TEST-7278\nOrder Date & Time: 7/10/2026, 9:24:06 am\n\nCUSTOMER DETAILS:\nCustomer Name: Test Admin Dispatch\nPrimary Mobile: +91 7772809503\nSecond Mobile: None\n\nDELIVERY ADDRESS (MADHYA PRADESH):\nHouse / Building Name: Plot 10, Station Road\nRoad Name / Area / Colony: Near Main Market\nCity: Dewas\nState: Madhya Pradesh\nPIN Code: 455001\n\nPRODUCTS ORDERED:\n- Sample Product for Email Diagnostic (ID: NISK-101) x 1 @ ₹500 = ₹500\n\nPAYMENT & TOTAL BREAKDOWN:\nBase Amount: ₹500\nPayment Method: ONLINE\n\nOnline Payment Discount: -₹50\nFinal Order Total: ₹450\nUPI Transaction ID / UTR: TEST-UTR-998877\nPayment Verification Status: Pending Verification\n\nRecipient Email: nishaldamor03@gmail.com\nCustomer Support: 7772809503\n========================================"
+    },
+    {
+      "id": "email-1791345226610",
+      "orderId": "NISK-919998",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NisKart ORDER] NISK-919998 - ₹499 from Rahul Chouhan (Dewas)",
+      "sentAt": "2026-10-07T03:53:46.610Z",
+      "status": "Failed",
+      "provider": "None",
+      "error": "Web3Forms error: Web3Forms HTTP 403",
+      "body": "========================================\nNEW NisKart ORDER NOTIFICATION\n========================================\nOrder ID: NISK-919998\nOrder Date & Time: 7/10/2026, 9:23:46 am\n\nCUSTOMER DETAILS:\nCustomer Name: Rahul Chouhan\nPrimary Mobile: +91 9826112233\nSecond Mobile: +91 9826445566\n\nDELIVERY ADDRESS (MADHYA PRADESH):\nHouse / Building Name: House 55\nRoad Name / Area / Colony: Alkapuri Colony\nCity: Dewas\nState: Madhya Pradesh\nPIN Code: 455001\n\nPRODUCTS ORDERED:\n- Men's Classic Festive Kurta (Comfort Pure Slub Cotton) (ID: NISK-104) x 1 @ ₹449 = ₹449\n\nPAYMENT & TOTAL BREAKDOWN:\nBase Amount: ₹449\nPayment Method: COD\nCOD Doorstep Charge: +₹50\n\nFinal Order Total: ₹499\nUPI Transaction ID / UTR: N/A\nPayment Verification Status: Not Applicable\n\nRecipient Email: nishaldamor03@gmail.com\nCustomer Support: 7772809503\n========================================"
+    },
+    {
+      "id": "email-1791345218301",
+      "orderId": "NISK-945522",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NisKart ORDER] NISK-945522 - ₹599 from Sunil Jain (Hatpipliya)",
+      "sentAt": "2026-10-07T03:53:38.301Z",
+      "status": "Failed",
+      "provider": "None",
+      "error": "Web3Forms error: Web3Forms HTTP 403",
+      "body": "========================================\nNEW NisKart ORDER NOTIFICATION\n========================================\nOrder ID: NISK-945522\nOrder Date & Time: 7/10/2026, 9:23:38 am\n\nCUSTOMER DETAILS:\nCustomer Name: Sunil Jain\nPrimary Mobile: +91 9826334455\nSecond Mobile: None\n\nDELIVERY ADDRESS (MADHYA PRADESH):\nHouse / Building Name: Near Jain Mandir\nRoad Name / Area / Colony: Main Bazar\nCity: Hatpipliya\nState: Madhya Pradesh\nPIN Code: 455223\n\nPRODUCTS ORDERED:\n- Pro Wireless TWS Earbuds with 40H Battery & ENC Mic (ID: NISK-102) x 1 @ ₹599 = ₹599\n\nPAYMENT & TOTAL BREAKDOWN:\nBase Amount: ₹599\nPayment Method: CARD\n\n\nFinal Order Total: ₹599\nUPI Transaction ID / UTR: N/A\nPayment Verification Status: Verified\n\nRecipient Email: nishaldamor03@gmail.com\nCustomer Support: 7772809503\n========================================"
+    },
+    {
+      "id": "email-1791345188074",
+      "orderId": "NISK-334918",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NisKart ORDER] NISK-334918 - ₹449 from Deepak Verma (Bagli)",
+      "sentAt": "2026-10-07T03:53:08.074Z",
+      "status": "Failed",
+      "provider": "None",
+      "error": "Web3Forms error: Web3Forms HTTP 403",
+      "body": "========================================\nNEW NisKart ORDER NOTIFICATION\n========================================\nOrder ID: NISK-334918\nOrder Date & Time: 7/10/2026, 9:23:07 am\n\nCUSTOMER DETAILS:\nCustomer Name: Deepak Verma\nPrimary Mobile: +91 9826778899\nSecond Mobile: None\n\nDELIVERY ADDRESS (MADHYA PRADESH):\nHouse / Building Name: Ward 4, Near Tehsil\nRoad Name / Area / Colony: Kantafor Road\nCity: Bagli\nState: Madhya Pradesh\nPIN Code: 455227\n\nPRODUCTS ORDERED:\n- Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers) (ID: NISK-101) x 1 @ ₹499 = ₹499\n\nPAYMENT & TOTAL BREAKDOWN:\nBase Amount: ₹499\nPayment Method: ONLINE\n\nOnline Payment Discount: -₹50\nFinal Order Total: ₹449\nUPI Transaction ID / UTR: UTR-482019482019\nPayment Verification Status: Pending Verification\n\nRecipient Email: nishaldamor03@gmail.com\nCustomer Support: 7772809503\n========================================"
+    },
+    {
+      "id": "email-1791343173447",
+      "orderId": "NISK-TEST-999",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NEW NisKart ORDER] NISK-TEST-999 - ₹450 from Test Admin Dispatch (Dewas)",
+      "sentAt": "2026-10-07T03:19:33.447Z",
+      "status": "Delivered",
+      "error": null,
+      "previewHtml": "\n    <!DOCTYPE html>\n    <html>\n    <head>\n      <meta charset=\"utf-8\">\n      <style>\n        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #0f172a; margin: 0; padding: 20px; }\n        .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }\n        .header { background: #0f172a; color: #ffffff; padding: 24px; text-align: center; }\n        .header h1 { margin: 0; font-size: 24px; letter-spacing: 1px; color: #10b981; }\n        .badge { display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.2); color: #10b981; border-radius: 20px; font-size: 12px; font-weight: 600; margin-top: 8px; }\n        .content { padding: 24px; }\n        .section-title { font-size: 14px; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.5px; }\n        .info-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; margin-bottom: 20px; font-size: 14px; line-height: 1.6; }\n        table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 20px; }\n        th { background: #f1f5f9; padding: 10px; text-align: left; font-size: 12px; color: #475569; text-transform: uppercase; }\n        .total-row { font-size: 16px; font-weight: 700; color: #0f172a; }\n        .footer { background: #f1f5f9; padding: 16px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n      </style>\n    </head>\n    <body>\n      <div class=\"container\">\n        <div class=\"header\">\n          <h1>NisKart</h1>\n          <p style=\"margin: 4px 0 0 0; font-size: 13px; color: #94a3b8;\">NEW CUSTOMER ORDER RECEIVED</p>\n          <div class=\"badge\">Order ID: NISK-TEST-999</div>\n        </div>\n        <div class=\"content\">\n          <div class=\"section-title\">Customer Information</div>\n          <div class=\"info-card\">\n            <strong>Customer Name:</strong> Test Admin Dispatch<br/>\n            <strong>Primary Mobile:</strong> <a href=\"tel:9826012345\" style=\"color: #0284c7; text-decoration: none; font-weight: 600;\">+91 9826012345</a><br/>\n            <strong>Second Mobile:</strong> <a href=\"tel:9826054321\" style=\"color: #0284c7; text-decoration: none;\">+91 9826054321</a><br/>\n            <strong>Order Date & Time:</strong> 7/10/2026, 8:49:33 am\n          </div>\n\n          <div class=\"section-title\">Delivery Address (Madhya Pradesh)</div>\n          <div class=\"info-card\">\n            <strong>House / Building:</strong> Plot 42, Civil Lines<br/>\n            <strong>Road / Colony / Area:</strong> Near Bus Stand, Station Road<br/>\n            <strong>City:</strong> <span style=\"background: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; font-weight: 600;\">Dewas</span><br/>\n            <strong>State:</strong> Madhya Pradesh<br/>\n            <strong>PIN Code:</strong> 455001\n          </div>\n\n          <div class=\"section-title\">Items Ordered</div>\n          <table>\n            <thead>\n              <tr>\n                <th>Product</th>\n                <th style=\"text-align: center;\">Qty</th>\n                <th style=\"text-align: right;\">Rate</th>\n                <th style=\"text-align: right;\">Total</th>\n              </tr>\n            </thead>\n            <tbody>\n              \n    <tr style=\"border-bottom: 1px solid #e2e8f0;\">\n      <td style=\"padding: 10px; font-weight: 500;\">\n        Sample Product for Email Verification <br/>\n        <span style=\"font-size: 11px; color: #64748b;\">Item ID: NISK-101</span>\n      </td>\n      <td style=\"padding: 10px; text-align: center;\">1</td>\n      <td style=\"padding: 10px; text-align: right;\">₹500</td>\n      <td style=\"padding: 10px; text-align: right; font-weight: 600;\">₹500</td>\n    </tr>\n  \n            </tbody>\n          </table>\n\n          <div class=\"section-title\">Payment & Pricing Breakdown</div>\n          <div class=\"info-card\">\n            <div style=\"display: flex; justify-content: space-between; margin-bottom: 6px;\">\n              <span>Base Subtotal:</span>\n              <span>₹500</span>\n            </div>\n            <div style=\"display: flex; justify-content: space-between; margin-bottom: 6px;\">\n              <span>Payment Mode:</span>\n              <strong style=\"text-transform: uppercase;\">Online Payment (UPI/Netbanking)</strong>\n            </div>\n            \n            <div style=\"display: flex; justify-content: space-between; color: #16a34a; margin-bottom: 6px;\">\n                    <span>Online Payment Discount:</span>\n                    <span>-₹50</span>\n                  </div>\n            <div style=\"border-top: 1px dashed #cbd5e1; padding-top: 8px; margin-top: 8px; display: flex; justify-content: space-between;\" class=\"total-row\">\n              <span>Final Order Total:</span>\n              <span style=\"color: #10b981;\">₹450</span>\n            </div>\n          </div>\n        </div>\n        <div class=\"footer\">\n          This order notification was automatically generated by the NisKart E-Commerce Engine.<br/>\n          Recipient Target: nishaldamor03@gmail.com\n        </div>\n      </div>\n    </body>\n    </html>\n  "
+    },
+    {
+      "id": "email-1791343020162",
+      "orderId": "NISK-734818",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NEW NisKart ORDER] NISK-734818 - ₹449 from NISHAL DAMOR (Dewas)",
+      "sentAt": "2026-10-07T03:17:00.162Z",
+      "status": "Delivered",
+      "error": null,
+      "previewHtml": "\n    <!DOCTYPE html>\n    <html>\n    <head>\n      <meta charset=\"utf-8\">\n      <style>\n        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #0f172a; margin: 0; padding: 20px; }\n        .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }\n        .header { background: #0f172a; color: #ffffff; padding: 24px; text-align: center; }\n        .header h1 { margin: 0; font-size: 24px; letter-spacing: 1px; color: #10b981; }\n        .badge { display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.2); color: #10b981; border-radius: 20px; font-size: 12px; font-weight: 600; margin-top: 8px; }\n        .content { padding: 24px; }\n        .section-title { font-size: 14px; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.5px; }\n        .info-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; margin-bottom: 20px; font-size: 14px; line-height: 1.6; }\n        table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 20px; }\n        th { background: #f1f5f9; padding: 10px; text-align: left; font-size: 12px; color: #475569; text-transform: uppercase; }\n        .total-row { font-size: 16px; font-weight: 700; color: #0f172a; }\n        .footer { background: #f1f5f9; padding: 16px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n      </style>\n    </head>\n    <body>\n      <div class=\"container\">\n        <div class=\"header\">\n          <h1>NisKart</h1>\n          <p style=\"margin: 4px 0 0 0; font-size: 13px; color: #94a3b8;\">NEW CUSTOMER ORDER RECEIVED</p>\n          <div class=\"badge\">Order ID: NISK-734818</div>\n        </div>\n        <div class=\"content\">\n          <div class=\"section-title\">Customer Information</div>\n          <div class=\"info-card\">\n            <strong>Customer Name:</strong> NISHAL DAMOR<br/>\n            <strong>Primary Mobile:</strong> <a href=\"tel:7772809503\" style=\"color: #0284c7; text-decoration: none; font-weight: 600;\">+91 7772809503</a><br/>\n            <strong>Second Mobile:</strong> <a href=\"tel:9575345768\" style=\"color: #0284c7; text-decoration: none;\">+91 9575345768</a><br/>\n            <strong>Order Date & Time:</strong> 7/10/2026, 8:47:00 am\n          </div>\n\n          <div class=\"section-title\">Delivery Address (Madhya Pradesh)</div>\n          <div class=\"info-card\">\n            <strong>House / Building:</strong> 26c18b19-fa58-46e0-a650-eee0a7db209d<br/>\n            <strong>Road / Colony / Area:</strong> 26c18b19-fa58-46e0-a650-eee0a7db209d<br/>\n            <strong>City:</strong> <span style=\"background: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; font-weight: 600;\">Dewas</span><br/>\n            <strong>State:</strong> Madhya Pradesh<br/>\n            <strong>PIN Code:</strong> 455223\n          </div>\n\n          <div class=\"section-title\">Items Ordered</div>\n          <table>\n            <thead>\n              <tr>\n                <th>Product</th>\n                <th style=\"text-align: center;\">Qty</th>\n                <th style=\"text-align: right;\">Rate</th>\n                <th style=\"text-align: right;\">Total</th>\n              </tr>\n            </thead>\n            <tbody>\n              \n    <tr style=\"border-bottom: 1px solid #e2e8f0;\">\n      <td style=\"padding: 10px; font-weight: 500;\">\n        Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers) <br/>\n        <span style=\"font-size: 11px; color: #64748b;\">Item ID: NISK-101</span>\n      </td>\n      <td style=\"padding: 10px; text-align: center;\">1</td>\n      <td style=\"padding: 10px; text-align: right;\">₹499</td>\n      <td style=\"padding: 10px; text-align: right; font-weight: 600;\">₹499</td>\n    </tr>\n  \n            </tbody>\n          </table>\n\n          <div class=\"section-title\">Payment & Pricing Breakdown</div>\n          <div class=\"info-card\">\n            <div style=\"display: flex; justify-content: space-between; margin-bottom: 6px;\">\n              <span>Base Subtotal:</span>\n              <span>₹499</span>\n            </div>\n            <div style=\"display: flex; justify-content: space-between; margin-bottom: 6px;\">\n              <span>Payment Mode:</span>\n              <strong style=\"text-transform: uppercase;\">Online Payment (UPI/Netbanking)</strong>\n            </div>\n            \n            <div style=\"display: flex; justify-content: space-between; color: #16a34a; margin-bottom: 6px;\">\n                    <span>Online Payment Discount:</span>\n                    <span>-₹50</span>\n                  </div>\n            <div style=\"border-top: 1px dashed #cbd5e1; padding-top: 8px; margin-top: 8px; display: flex; justify-content: space-between;\" class=\"total-row\">\n              <span>Final Order Total:</span>\n              <span style=\"color: #10b981;\">₹449</span>\n            </div>\n          </div>\n        </div>\n        <div class=\"footer\">\n          This order notification was automatically generated by the NisKart E-Commerce Engine.<br/>\n          Recipient Target: nishaldamor03@gmail.com\n        </div>\n      </div>\n    </body>\n    </html>\n  "
+    },
+    {
+      "id": "email-1791342832206",
+      "orderId": "NISK-TEST-999",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NEW NisKart ORDER] NISK-TEST-999 - ₹450 from Test Admin Dispatch (Dewas)",
+      "sentAt": "2026-10-07T03:13:52.206Z",
+      "status": "Delivered",
+      "error": null,
+      "previewHtml": "\n    <!DOCTYPE html>\n    <html>\n    <head>\n      <meta charset=\"utf-8\">\n      <style>\n        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #0f172a; margin: 0; padding: 20px; }\n        .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }\n        .header { background: #0f172a; color: #ffffff; padding: 24px; text-align: center; }\n        .header h1 { margin: 0; font-size: 24px; letter-spacing: 1px; color: #10b981; }\n        .badge { display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.2); color: #10b981; border-radius: 20px; font-size: 12px; font-weight: 600; margin-top: 8px; }\n        .content { padding: 24px; }\n        .section-title { font-size: 14px; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.5px; }\n        .info-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; margin-bottom: 20px; font-size: 14px; line-height: 1.6; }\n        table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 20px; }\n        th { background: #f1f5f9; padding: 10px; text-align: left; font-size: 12px; color: #475569; text-transform: uppercase; }\n        .total-row { font-size: 16px; font-weight: 700; color: #0f172a; }\n        .footer { background: #f1f5f9; padding: 16px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n      </style>\n    </head>\n    <body>\n      <div class=\"container\">\n        <div class=\"header\">\n          <h1>NisKart</h1>\n          <p style=\"margin: 4px 0 0 0; font-size: 13px; color: #94a3b8;\">NEW CUSTOMER ORDER RECEIVED</p>\n          <div class=\"badge\">Order ID: NISK-TEST-999</div>\n        </div>\n        <div class=\"content\">\n          <div class=\"section-title\">Customer Information</div>\n          <div class=\"info-card\">\n            <strong>Customer Name:</strong> Test Admin Dispatch<br/>\n            <strong>Primary Mobile:</strong> <a href=\"tel:9826012345\" style=\"color: #0284c7; text-decoration: none; font-weight: 600;\">+91 9826012345</a><br/>\n            <strong>Second Mobile:</strong> <a href=\"tel:9826054321\" style=\"color: #0284c7; text-decoration: none;\">+91 9826054321</a><br/>\n            <strong>Order Date & Time:</strong> 7/10/2026, 8:43:52 am\n          </div>\n\n          <div class=\"section-title\">Delivery Address (Madhya Pradesh)</div>\n          <div class=\"info-card\">\n            <strong>House / Building:</strong> Plot 42, Civil Lines<br/>\n            <strong>Road / Colony / Area:</strong> Near Bus Stand, Station Road<br/>\n            <strong>City:</strong> <span style=\"background: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; font-weight: 600;\">Dewas</span><br/>\n            <strong>State:</strong> Madhya Pradesh<br/>\n            <strong>PIN Code:</strong> 455001\n          </div>\n\n          <div class=\"section-title\">Items Ordered</div>\n          <table>\n            <thead>\n              <tr>\n                <th>Product</th>\n                <th style=\"text-align: center;\">Qty</th>\n                <th style=\"text-align: right;\">Rate</th>\n                <th style=\"text-align: right;\">Total</th>\n              </tr>\n            </thead>\n            <tbody>\n              \n    <tr style=\"border-bottom: 1px solid #e2e8f0;\">\n      <td style=\"padding: 10px; font-weight: 500;\">\n        Sample Product for Email Verification <br/>\n        <span style=\"font-size: 11px; color: #64748b;\">Item ID: NISK-101</span>\n      </td>\n      <td style=\"padding: 10px; text-align: center;\">1</td>\n      <td style=\"padding: 10px; text-align: right;\">₹500</td>\n      <td style=\"padding: 10px; text-align: right; font-weight: 600;\">₹500</td>\n    </tr>\n  \n            </tbody>\n          </table>\n\n          <div class=\"section-title\">Payment & Pricing Breakdown</div>\n          <div class=\"info-card\">\n            <div style=\"display: flex; justify-content: space-between; margin-bottom: 6px;\">\n              <span>Base Subtotal:</span>\n              <span>₹500</span>\n            </div>\n            <div style=\"display: flex; justify-content: space-between; margin-bottom: 6px;\">\n              <span>Payment Mode:</span>\n              <strong style=\"text-transform: uppercase;\">Online Payment (UPI/Netbanking)</strong>\n            </div>\n            \n            <div style=\"display: flex; justify-content: space-between; color: #16a34a; margin-bottom: 6px;\">\n                    <span>Online Payment Discount:</span>\n                    <span>-₹50</span>\n                  </div>\n            <div style=\"border-top: 1px dashed #cbd5e1; padding-top: 8px; margin-top: 8px; display: flex; justify-content: space-between;\" class=\"total-row\">\n              <span>Final Order Total:</span>\n              <span style=\"color: #10b981;\">₹450</span>\n            </div>\n          </div>\n        </div>\n        <div class=\"footer\">\n          This order notification was automatically generated by the NisKart E-Commerce Engine.<br/>\n          Recipient Target: nishaldamor03@gmail.com\n        </div>\n      </div>\n    </body>\n    </html>\n  "
+    },
+    {
+      "id": "email-1791342808296",
+      "orderId": "NISK-194299",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NEW NisKart ORDER] NISK-194299 - ₹550 from Ramesh Sharma (Indore)",
+      "sentAt": "2026-10-07T03:13:28.296Z",
+      "status": "Delivered",
+      "error": null,
+      "previewHtml": "\n    <!DOCTYPE html>\n    <html>\n    <head>\n      <meta charset=\"utf-8\">\n      <style>\n        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #0f172a; margin: 0; padding: 20px; }\n        .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }\n        .header { background: #0f172a; color: #ffffff; padding: 24px; text-align: center; }\n        .header h1 { margin: 0; font-size: 24px; letter-spacing: 1px; color: #10b981; }\n        .badge { display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.2); color: #10b981; border-radius: 20px; font-size: 12px; font-weight: 600; margin-top: 8px; }\n        .content { padding: 24px; }\n        .section-title { font-size: 14px; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.5px; }\n        .info-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; margin-bottom: 20px; font-size: 14px; line-height: 1.6; }\n        table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 20px; }\n        th { background: #f1f5f9; padding: 10px; text-align: left; font-size: 12px; color: #475569; text-transform: uppercase; }\n        .total-row { font-size: 16px; font-weight: 700; color: #0f172a; }\n        .footer { background: #f1f5f9; padding: 16px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n      </style>\n    </head>\n    <body>\n      <div class=\"container\">\n        <div class=\"header\">\n          <h1>NisKart</h1>\n          <p style=\"margin: 4px 0 0 0; font-size: 13px; color: #94a3b8;\">NEW CUSTOMER ORDER RECEIVED</p>\n          <div class=\"badge\">Order ID: NISK-194299</div>\n        </div>\n        <div class=\"content\">\n          <div class=\"section-title\">Customer Information</div>\n          <div class=\"info-card\">\n            <strong>Customer Name:</strong> Ramesh Sharma<br/>\n            <strong>Primary Mobile:</strong> <a href=\"tel:9826123456\" style=\"color: #0284c7; text-decoration: none; font-weight: 600;\">+91 9826123456</a><br/>\n            \n            <strong>Order Date & Time:</strong> 7/10/2026, 8:43:28 am\n          </div>\n\n          <div class=\"section-title\">Delivery Address (Madhya Pradesh)</div>\n          <div class=\"info-card\">\n            <strong>House / Building:</strong> Flat 401, Sapphire Heights<br/>\n            <strong>Road / Colony / Area:</strong> Vijay Nagar, Near Mall<br/>\n            <strong>City:</strong> <span style=\"background: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; font-weight: 600;\">Indore</span><br/>\n            <strong>State:</strong> Madhya Pradesh<br/>\n            <strong>PIN Code:</strong> 452001\n          </div>\n\n          <div class=\"section-title\">Items Ordered</div>\n          <table>\n            <thead>\n              <tr>\n                <th>Product</th>\n                <th style=\"text-align: center;\">Qty</th>\n                <th style=\"text-align: right;\">Rate</th>\n                <th style=\"text-align: right;\">Total</th>\n              </tr>\n            </thead>\n            <tbody>\n              \n    <tr style=\"border-bottom: 1px solid #e2e8f0;\">\n      <td style=\"padding: 10px; font-weight: 500;\">\n        Pure Cotton Rajasthani Bedspread <br/>\n        <span style=\"font-size: 11px; color: #64748b;\">Item ID: NISK-101</span>\n      </td>\n      <td style=\"padding: 10px; text-align: center;\">1</td>\n      <td style=\"padding: 10px; text-align: right;\">₹500</td>\n      <td style=\"padding: 10px; text-align: right; font-weight: 600;\">₹500</td>\n    </tr>\n  \n            </tbody>\n          </table>\n\n          <div class=\"section-title\">Payment & Pricing Breakdown</div>\n          <div class=\"info-card\">\n            <div style=\"display: flex; justify-content: space-between; margin-bottom: 6px;\">\n              <span>Base Subtotal:</span>\n              <span>₹500</span>\n            </div>\n            <div style=\"display: flex; justify-content: space-between; margin-bottom: 6px;\">\n              <span>Payment Mode:</span>\n              <strong style=\"text-transform: uppercase;\">Cash on Delivery (COD)</strong>\n            </div>\n            <div style=\"display: flex; justify-content: space-between; color: #d97706; margin-bottom: 6px;\">\n                    <span>COD Handling Fee:</span>\n                    <span>+₹50</span>\n                  </div>\n            \n            <div style=\"border-top: 1px dashed #cbd5e1; padding-top: 8px; margin-top: 8px; display: flex; justify-content: space-between;\" class=\"total-row\">\n              <span>Final Order Total:</span>\n              <span style=\"color: #10b981;\">₹550</span>\n            </div>\n          </div>\n        </div>\n        <div class=\"footer\">\n          This order notification was automatically generated by the NisKart E-Commerce Engine.<br/>\n          Recipient Target: nishaldamor03@gmail.com\n        </div>\n      </div>\n    </body>\n    </html>\n  "
+    },
+    {
+      "id": "email-1791342800299",
+      "orderId": "NISK-972352",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NEW NisKart ORDER] NISK-972352 - ₹450 from Nishal Damor (Dewas)",
+      "sentAt": "2026-10-07T03:13:20.299Z",
+      "status": "Delivered",
+      "error": null,
+      "previewHtml": "\n    <!DOCTYPE html>\n    <html>\n    <head>\n      <meta charset=\"utf-8\">\n      <style>\n        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; color: #0f172a; margin: 0; padding: 20px; }\n        .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }\n        .header { background: #0f172a; color: #ffffff; padding: 24px; text-align: center; }\n        .header h1 { margin: 0; font-size: 24px; letter-spacing: 1px; color: #10b981; }\n        .badge { display: inline-block; padding: 4px 10px; background: rgba(16, 185, 129, 0.2); color: #10b981; border-radius: 20px; font-size: 12px; font-weight: 600; margin-top: 8px; }\n        .content { padding: 24px; }\n        .section-title { font-size: 14px; text-transform: uppercase; color: #64748b; font-weight: 700; margin-bottom: 10px; letter-spacing: 0.5px; }\n        .info-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px; margin-bottom: 20px; font-size: 14px; line-height: 1.6; }\n        table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 20px; }\n        th { background: #f1f5f9; padding: 10px; text-align: left; font-size: 12px; color: #475569; text-transform: uppercase; }\n        .total-row { font-size: 16px; font-weight: 700; color: #0f172a; }\n        .footer { background: #f1f5f9; padding: 16px; text-align: center; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }\n      </style>\n    </head>\n    <body>\n      <div class=\"container\">\n        <div class=\"header\">\n          <h1>NisKart</h1>\n          <p style=\"margin: 4px 0 0 0; font-size: 13px; color: #94a3b8;\">NEW CUSTOMER ORDER RECEIVED</p>\n          <div class=\"badge\">Order ID: NISK-972352</div>\n        </div>\n        <div class=\"content\">\n          <div class=\"section-title\">Customer Information</div>\n          <div class=\"info-card\">\n            <strong>Customer Name:</strong> Nishal Damor<br/>\n            <strong>Primary Mobile:</strong> <a href=\"tel:9826011223\" style=\"color: #0284c7; text-decoration: none; font-weight: 600;\">+91 9826011223</a><br/>\n            <strong>Second Mobile:</strong> <a href=\"tel:9826099887\" style=\"color: #0284c7; text-decoration: none;\">+91 9826099887</a><br/>\n            <strong>Order Date & Time:</strong> 7/10/2026, 8:43:20 am\n          </div>\n\n          <div class=\"section-title\">Delivery Address (Madhya Pradesh)</div>\n          <div class=\"info-card\">\n            <strong>House / Building:</strong> House 12, Civil Lines<br/>\n            <strong>Road / Colony / Area:</strong> Near Bus Station Road<br/>\n            <strong>City:</strong> <span style=\"background: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; font-weight: 600;\">Dewas</span><br/>\n            <strong>State:</strong> Madhya Pradesh<br/>\n            <strong>PIN Code:</strong> 455001\n          </div>\n\n          <div class=\"section-title\">Items Ordered</div>\n          <table>\n            <thead>\n              <tr>\n                <th>Product</th>\n                <th style=\"text-align: center;\">Qty</th>\n                <th style=\"text-align: right;\">Rate</th>\n                <th style=\"text-align: right;\">Total</th>\n              </tr>\n            </thead>\n            <tbody>\n              \n    <tr style=\"border-bottom: 1px solid #e2e8f0;\">\n      <td style=\"padding: 10px; font-weight: 500;\">\n        Pure Cotton Rajasthani Bedspread <br/>\n        <span style=\"font-size: 11px; color: #64748b;\">Item ID: NISK-101</span>\n      </td>\n      <td style=\"padding: 10px; text-align: center;\">1</td>\n      <td style=\"padding: 10px; text-align: right;\">₹500</td>\n      <td style=\"padding: 10px; text-align: right; font-weight: 600;\">₹500</td>\n    </tr>\n  \n            </tbody>\n          </table>\n\n          <div class=\"section-title\">Payment & Pricing Breakdown</div>\n          <div class=\"info-card\">\n            <div style=\"display: flex; justify-content: space-between; margin-bottom: 6px;\">\n              <span>Base Subtotal:</span>\n              <span>₹500</span>\n            </div>\n            <div style=\"display: flex; justify-content: space-between; margin-bottom: 6px;\">\n              <span>Payment Mode:</span>\n              <strong style=\"text-transform: uppercase;\">Online Payment (UPI/Netbanking)</strong>\n            </div>\n            \n            <div style=\"display: flex; justify-content: space-between; color: #16a34a; margin-bottom: 6px;\">\n                    <span>Online Payment Discount:</span>\n                    <span>-₹50</span>\n                  </div>\n            <div style=\"border-top: 1px dashed #cbd5e1; padding-top: 8px; margin-top: 8px; display: flex; justify-content: space-between;\" class=\"total-row\">\n              <span>Final Order Total:</span>\n              <span style=\"color: #10b981;\">₹450</span>\n            </div>\n          </div>\n        </div>\n        <div class=\"footer\">\n          This order notification was automatically generated by the NisKart E-Commerce Engine.<br/>\n          Recipient Target: nishaldamor03@gmail.com\n        </div>\n      </div>\n    </body>\n    </html>\n  "
+    }
+  ]
+}
