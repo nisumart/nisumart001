@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Customer } from '../types';
+import { apiRequest } from '../utils/apiClient';
 import { X, User, Phone, Lock, Eye, EyeOff, Loader2, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 interface CustomerAuthModalProps {
@@ -66,16 +67,11 @@ export const CustomerAuthModal: React.FC<CustomerAuthModalProps> = ({
           ? { name: name.trim(), mobile: cleanMobile, password, confirmPassword }
           : { mobile: cleanMobile, password };
 
-      const res = await fetch(endpoint, {
+      const data = await apiRequest<{ customer: Customer }>(endpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || 'Authentication failed');
-      }
 
       setSuccessMsg(mode === 'signup' ? 'Account created successfully!' : 'Logged in successfully!');
       setTimeout(() => {

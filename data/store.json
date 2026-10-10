@@ -221,6 +221,38 @@
   ],
   "orders": [
     {
+      "id": "ord-1791605591172",
+      "orderId": "NISK-533359",
+      "customerId": null,
+      "customerName": "Rohan Sharma",
+      "mobile": "9826012345",
+      "secondMobile": "",
+      "pinCode": "455001",
+      "city": "Dewas",
+      "state": "Madhya Pradesh",
+      "houseNo": "Flat 202, Surya Apt",
+      "roadArea": "AB Road",
+      "items": [
+        {
+          "productId": "NISK-101",
+          "productName": "Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers)",
+          "price": 499,
+          "quantity": 1,
+          "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80"
+        }
+      ],
+      "paymentMethod": "cod",
+      "baseAmount": 499,
+      "adjustmentAmount": 50,
+      "finalAmount": 549,
+      "upiTransactionId": null,
+      "paymentVerificationStatus": "Not Applicable",
+      "status": "Confirmed",
+      "createdAt": "2026-10-10T04:13:11.172Z",
+      "emailSent": false,
+      "emailError": "Web3Forms server status: Web3Forms HTTP 403"
+    },
+    {
       "id": "ord-1791462835910",
       "orderId": "NISK-317593",
       "customerId": null,
@@ -560,6 +592,17 @@
     }
   ],
   "emailOutbox": [
+    {
+      "id": "email-1791605591347",
+      "orderId": "NISK-533359",
+      "to": "nishaldamor03@gmail.com",
+      "subject": "🛒 [NisKart ORDER] NISK-533359 - ₹549 from Rohan Sharma (Dewas)",
+      "sentAt": "2026-10-10T04:13:11.347Z",
+      "status": "Failed",
+      "provider": "None",
+      "error": "Web3Forms server status: Web3Forms HTTP 403",
+      "body": "========================================\nNEW NisKart ORDER NOTIFICATION\n========================================\nOrder ID: NISK-533359\nOrder Date & Time: 10/10/2026, 9:43:11 am\n\nCUSTOMER DETAILS:\nCustomer Name: Rohan Sharma\nPrimary Mobile: +91 9826012345\nSecond Mobile: None\n\nDELIVERY ADDRESS (MADHYA PRADESH):\nHouse / Building Name: Flat 202, Surya Apt\nRoad Name / Area / Colony: AB Road\nCity: Dewas\nState: Madhya Pradesh\nPIN Code: 455001\n\nPRODUCTS ORDERED:\n- Pure Cotton Rajasthani Bedspread (King Size + 2 Pillow Covers) (ID: NISK-101) x 1 @ ₹499 = ₹499\n\nPAYMENT & TOTAL BREAKDOWN:\nBase Amount: ₹499\nPayment Method: COD\nCOD Doorstep Charge: +₹50\n\nFinal Order Total: ₹549\nUPI Transaction ID / UTR: N/A\nPayment Verification Status: Not Applicable\n\nRecipient Email: nishaldamor03@gmail.com\nCustomer Support: 7772809503\n========================================"
+    },
     {
       "id": "email-1791479255320",
       "orderId": "NISK-TEST-5134",

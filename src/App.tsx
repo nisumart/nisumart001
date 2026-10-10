@@ -40,6 +40,7 @@ import {
   fallbackBanners,
   fallbackPaymentSettings,
 } from './data/fallbackData';
+import { safeFetchJson } from './utils/apiClient';
 import { ShieldCheck, Truck, Zap, Banknote, MapPin, Phone, Mail, Headphones } from 'lucide-react';
 
 export default function App() {
@@ -79,18 +80,19 @@ export default function App() {
   // Fetch initial data
   const loadStoreData = useCallback(async () => {
     try {
-      const res = await fetch('/api/data');
-      if (res.ok) {
-        const data = await res.json();
-        setProducts(data.products || []);
-        setThumbnails(data.thumbnails || []);
-        setBanners(data.banners || []);
-        if (data.paymentSettings) {
-          setPaymentSettings(data.paymentSettings);
+      const result = await safeFetchJson<any>('/api/data');
+      if (result.ok && result.data) {
+        setProducts(result.data.products || fallbackProducts);
+        setThumbnails(result.data.thumbnails || fallbackThumbnails);
+        setBanners(result.data.banners || fallbackBanners);
+        if (result.data.paymentSettings) {
+          setPaymentSettings(result.data.paymentSettings);
         }
+      } else if (result.error) {
+        console.warn('Live API sync notice (using fallback catalog):', result.error);
       }
     } catch (err) {
-      console.error('Failed to load store data:', err);
+      console.warn('Failed to load store data:', err);
     }
   }, []);
 

@@ -27,6 +27,7 @@ import {
   Clock,
   Star,
 } from 'lucide-react';
+import { apiRequest, safeFetchJson } from '../utils/apiClient';
 
 interface AdminPanelProps {
   isOpen: boolean;
@@ -135,15 +136,11 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     setAuthError('');
     setIsLoggingIn(true);
     try {
-      const res = await fetch('/api/admin/login', {
+      const data = await apiRequest<{ token: string }>('/api/admin/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ passcode: passcode.trim() }),
       });
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || 'Authentication failed');
-      }
       setAdminToken(data.token);
       setPasscode('');
       fetchAdminOrders(data.token);
@@ -164,17 +161,16 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     if (!token) return;
     setIsLoadingOrders(true);
     try {
-      const res = await fetch('/api/admin/orders', {
+      const result = await safeFetchJson<any>('/api/admin/orders', {
         headers: { Authorization: `Bearer ${token}` },
       });
-      const data = await res.json();
-      if (res.ok) {
-        setOrders(data.orders || []);
-        setEmailOutbox(data.emailOutbox || []);
-        if (data.paymentSettings) {
+      if (result.ok && result.data) {
+        setOrders(result.data.orders || []);
+        setEmailOutbox(result.data.emailOutbox || []);
+        if (result.data.paymentSettings) {
           setPaymentForm((prev) => ({
             ...prev,
-            ...data.paymentSettings,
+            ...result.data.paymentSettings,
           }));
         }
       }
@@ -197,7 +193,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     const file = e.target.files?.[0];
     if (!file) return;
     if (file.size > 8 * 1024 * 1024) {
-      alert('File size exceeds 8MB. Please select a smaller image.');
+      showFeedback('File size exceeds 8MB. Please select a smaller image.');
       return;
     }
     const reader = new FileReader();
@@ -217,13 +213,13 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     const remainingSlots = 5 - currentImages.length;
 
     if (remainingSlots <= 0) {
-      alert('Maximum 5 images allowed per product. Please remove an existing image before adding more.');
+      showFeedback('Maximum 5 images allowed per product. Please remove an existing image before adding more.');
       return;
     }
 
     const filesToProcess = Array.from(files).slice(0, remainingSlots);
     if (files.length > remainingSlots) {
-      alert(`Only ${remainingSlots} more image(s) could be selected (maximum 5 images per product).`);
+      showFeedback(`Only ${remainingSlots} more image(s) could be selected (maximum 5 images per product).`);
     }
 
     let processedCount = 0;
@@ -231,7 +227,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
 
     filesToProcess.forEach((file) => {
       if (file.size > 8 * 1024 * 1024) {
-        alert(`File ${file.name} exceeds 8MB and was skipped.`);
+        showFeedback(`File ${file.name} exceeds 8MB and was skipped.`);
         processedCount++;
         return;
       }
@@ -263,7 +259,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     if (!adminToken) return;
 
     try {
-      const res = await fetch('/api/admin/payment-settings', {
+      await apiRequest('/api/admin/payment-settings', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -272,13 +268,10 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
         body: JSON.stringify(paymentForm),
       });
 
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Failed to update payment settings');
-
       showFeedback('Payment settings and Web3Forms key saved successfully!');
       onDataRefresh();
     } catch (err: any) {
-      alert(err.message);
+      showFeedback('Error: ' + err.message);
     }
   };
 
@@ -312,7 +305,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
 
       if (editingProduct) {
         payload.id = editingProduct.id;
-        const res = await fetch('/api/admin/products', {
+        await apiRequest('/api/admin/products', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -320,10 +313,9 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
           },
           body: JSON.stringify({ action: 'update', product: payload }),
         });
-        if (!res.ok) throw new Error('Failed to update product');
         showFeedback('Product updated successfully!');
       } else {
-        const res = await fetch('/api/admin/products', {
+        await apiRequest('/api/admin/products', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -331,7 +323,6 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
           },
           body: JSON.stringify({ action: 'create', product: payload }),
         });
-        if (!res.ok) throw new Error('Failed to add product');
         showFeedback('New product added successfully!');
       }
 
@@ -339,14 +330,14 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
       setEditingProduct(null);
       onDataRefresh();
     } catch (err: any) {
-      alert(err.message);
+      showFeedback('Error: ' + err.message);
     }
   };
 
   const handleDeleteProduct = async (id: string) => {
     if (!confirm('Are you sure you want to delete this product?')) return;
     try {
-      const res = await fetch('/api/admin/products', {
+      await apiRequest('/api/admin/products', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -354,18 +345,16 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
         },
         body: JSON.stringify({ action: 'delete', product: { id } }),
       });
-      if (res.ok) {
-        showFeedback('Product deleted');
-        onDataRefresh();
-      }
-    } catch (err) {
-      console.error(err);
+      showFeedback('Product deleted');
+      onDataRefresh();
+    } catch (err: any) {
+      showFeedback('Error: ' + err.message);
     }
   };
 
   const handleToggleProductStatus = async (product: Product) => {
     try {
-      const res = await fetch('/api/admin/products', {
+      await apiRequest('/api/admin/products', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -376,12 +365,10 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
           product: { id: product.id, isAvailable: !product.isAvailable },
         }),
       });
-      if (res.ok) {
-        showFeedback(`Product ${product.isAvailable ? 'disabled' : 'enabled'}`);
-        onDataRefresh();
-      }
-    } catch (err) {
-      console.error(err);
+      showFeedback(`Product ${product.isAvailable ? 'disabled' : 'enabled'}`);
+      onDataRefresh();
+    } catch (err: any) {
+      showFeedback('Error: ' + err.message);
     }
   };
 
@@ -400,7 +387,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
       if (editingThumbnail) {
         payload.id = editingThumbnail.id;
         payload.order = editingThumbnail.order;
-        const res = await fetch('/api/admin/thumbnails', {
+        await apiRequest('/api/admin/thumbnails', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -408,10 +395,9 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
           },
           body: JSON.stringify({ action: 'update', thumbnail: payload }),
         });
-        if (!res.ok) throw new Error('Failed to update thumbnail');
         showFeedback('Thumbnail updated!');
       } else {
-        const res = await fetch('/api/admin/thumbnails', {
+        await apiRequest('/api/admin/thumbnails', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -419,7 +405,6 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
           },
           body: JSON.stringify({ action: 'create', thumbnail: payload }),
         });
-        if (!res.ok) throw new Error('Failed to add thumbnail');
         showFeedback('New custom thumbnail created!');
       }
 
@@ -427,14 +412,14 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
       setEditingThumbnail(null);
       onDataRefresh();
     } catch (err: any) {
-      alert(err.message);
+      showFeedback('Error: ' + err.message);
     }
   };
 
   const handleDeleteThumbnail = async (id: string) => {
     if (!confirm('Delete this custom thumbnail section?')) return;
     try {
-      const res = await fetch('/api/admin/thumbnails', {
+      await apiRequest('/api/admin/thumbnails', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -442,12 +427,10 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
         },
         body: JSON.stringify({ action: 'delete', thumbnail: { id } }),
       });
-      if (res.ok) {
-        showFeedback('Thumbnail deleted');
-        onDataRefresh();
-      }
-    } catch (err) {
-      console.error(err);
+      showFeedback('Thumbnail deleted');
+      onDataRefresh();
+    } catch (err: any) {
+      showFeedback('Error: ' + err.message);
     }
   };
 
@@ -460,7 +443,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     list[target] = temp;
     const updated = list.map((item, idx) => ({ ...item, order: idx + 1 }));
     try {
-      const res = await fetch('/api/admin/thumbnails', {
+      await apiRequest('/api/admin/thumbnails', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -468,11 +451,9 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
         },
         body: JSON.stringify({ action: 'reorder', thumbnails: updated }),
       });
-      if (res.ok) {
-        onDataRefresh();
-      }
-    } catch (err) {
-      console.error(err);
+      onDataRefresh();
+    } catch (err: any) {
+      showFeedback('Error: ' + err.message);
     }
   };
 
@@ -492,7 +473,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
       if (editingBanner) {
         payload.id = editingBanner.id;
         payload.order = editingBanner.order;
-        const res = await fetch('/api/admin/banners', {
+        await apiRequest('/api/admin/banners', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -500,10 +481,9 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
           },
           body: JSON.stringify({ action: 'update', banner: payload }),
         });
-        if (!res.ok) throw new Error('Failed to update banner');
         showFeedback('Banner updated!');
       } else {
-        const res = await fetch('/api/admin/banners', {
+        await apiRequest('/api/admin/banners', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -511,7 +491,6 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
           },
           body: JSON.stringify({ action: 'create', banner: payload }),
         });
-        if (!res.ok) throw new Error('Failed to create banner');
         showFeedback('New banner added!');
       }
 
@@ -519,14 +498,14 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
       setEditingBanner(null);
       onDataRefresh();
     } catch (err: any) {
-      alert(err.message);
+      showFeedback('Error: ' + err.message);
     }
   };
 
   const handleDeleteBanner = async (id: string) => {
     if (!confirm('Delete this promotional banner?')) return;
     try {
-      const res = await fetch('/api/admin/banners', {
+      await apiRequest('/api/admin/banners', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -534,12 +513,10 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
         },
         body: JSON.stringify({ action: 'delete', banner: { id } }),
       });
-      if (res.ok) {
-        showFeedback('Banner deleted');
-        onDataRefresh();
-      }
-    } catch (err) {
-      console.error(err);
+      showFeedback('Banner deleted');
+      onDataRefresh();
+    } catch (err: any) {
+      showFeedback('Error: ' + err.message);
     }
   };
 
@@ -552,7 +529,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     list[target] = temp;
     const updated = list.map((item, idx) => ({ ...item, order: idx + 1 }));
     try {
-      const res = await fetch('/api/admin/banners', {
+      await apiRequest('/api/admin/banners', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -560,11 +537,9 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
         },
         body: JSON.stringify({ action: 'reorder', banners: updated }),
       });
-      if (res.ok) {
-        onDataRefresh();
-      }
-    } catch (err) {
-      console.error(err);
+      onDataRefresh();
+    } catch (err: any) {
+      showFeedback('Error: ' + err.message);
     }
   };
 
@@ -572,7 +547,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   const handleUpdateOrderStatus = async (orderId: string, status: string) => {
     if (!adminToken) return;
     try {
-      const res = await fetch(`/api/admin/orders/${orderId}/status`, {
+      await apiRequest(`/api/admin/orders/${orderId}/status`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -580,12 +555,10 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
         },
         body: JSON.stringify({ status }),
       });
-      if (res.ok) {
-        showFeedback(`Order status updated to ${status}`);
-        fetchAdminOrders();
-      }
-    } catch (err) {
-      console.error(err);
+      showFeedback(`Order status updated to ${status}`);
+      fetchAdminOrders();
+    } catch (err: any) {
+      showFeedback('Error: ' + err.message);
     }
   };
 
@@ -595,7 +568,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   ) => {
     if (!adminToken) return;
     try {
-      const res = await fetch(`/api/admin/orders/${orderId}/payment-verification`, {
+      await apiRequest(`/api/admin/orders/${orderId}/payment-verification`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -603,12 +576,10 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
         },
         body: JSON.stringify({ verificationStatus }),
       });
-      if (res.ok) {
-        showFeedback(`Payment marked as: ${verificationStatus}`);
-        fetchAdminOrders();
-      }
-    } catch (err) {
-      console.error(err);
+      showFeedback(`Payment marked as: ${verificationStatus}`);
+      fetchAdminOrders();
+    } catch (err: any) {
+      showFeedback('Error: ' + err.message);
     }
   };
 
@@ -617,11 +588,10 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     setIsTestingEmail(true);
     setEmailTestResult(null);
     try {
-      const res = await fetch('/api/admin/test-email', {
+      const data = await apiRequest<{ success: boolean; message?: string }>('/api/admin/test-email', {
         method: 'POST',
         headers: { Authorization: `Bearer ${adminToken}` },
       });
-      const data = await res.json();
       setEmailTestResult({
         success: data.success,
         message: data.message || (data.success ? 'Email delivered successfully!' : 'Delivery failed'),

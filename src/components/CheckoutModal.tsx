@@ -28,6 +28,7 @@ import {
   QrCode,
   Headphones,
 } from 'lucide-react';
+import { apiRequest } from '../utils/apiClient';
 
 interface CheckoutModalProps {
   items: OrderItem[];
@@ -198,7 +199,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
     try {
       // Step 1: Create card payment intent on backend
-      const response = await fetch('/api/payment/verify-card-intent', {
+      const resData = await apiRequest<{ intentId: string }>('/api/payment/verify-card-intent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -207,11 +208,6 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
           city,
         }),
       });
-
-      const resData = await response.json();
-      if (!response.ok) {
-        throw new Error(resData.error || 'Card intent creation failed');
-      }
 
       setCardIntentId(resData.intentId);
       setCardGatewayStep('3ds_otp');
@@ -234,7 +230,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
     try {
       // Step 2: Confirm charge with gateway backend
-      const res = await fetch('/api/payment/confirm-card-charge', {
+      const data = await apiRequest<{ cardAuthToken: string }>('/api/payment/confirm-card-charge', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -242,11 +238,6 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
           otp: cardOtp,
         }),
       });
-
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || 'Bank authorization failed');
-      }
 
       setCardAuthToken(data.cardAuthToken);
       setCardGatewayStep('authorized');
@@ -302,16 +293,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     };
 
     try {
-      const res = await fetch('/api/orders', {
+      const data = await apiRequest<{ order: Order }>('/api/orders', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(orderPayload),
       });
-
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || 'Failed to place order');
-      }
 
       onOrderSuccess(data.order);
     } catch (err: any) {

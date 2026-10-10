@@ -15,16 +15,30 @@ const IS_VERCEL = Boolean(process.env.VERCEL);
 app.use(express.json({ limit: '25mb' }));
 app.use(express.urlencoded({ extended: true, limit: '25mb' }));
 
-// Rewrite middleware for serverless function dispatch (handles both /api/* and /*)
+// Enable CORS for all incoming client requests
+app.use((_req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  next();
+});
+
+// Immediately resolve preflight OPTIONS requests
+app.options('*', (_req, res) => {
+  res.status(200).end();
+});
+
+// Rewrite & normalize URL for Vercel serverless function dispatch
 app.use((req, _res, next) => {
-  if (!req.url.startsWith('/api') && (
-    req.url.startsWith('/data') ||
-    req.url.startsWith('/orders') ||
-    req.url.startsWith('/customer') ||
-    req.url.startsWith('/admin') ||
-    req.url.startsWith('/payment')
-  )) {
-    req.url = '/api' + req.url;
+  // If invoked via Vercel catch-all route (/api/[...path].ts), reconstruct the original route
+  if (req.query && req.query.path) {
+    const segments = Array.isArray(req.query.path) ? req.query.path.join('/') : req.query.path;
+    const qIndex = req.url.indexOf('?');
+    const queryString = qIndex !== -1 ? req.url.slice(qIndex) : '';
+    req.url = '/api/' + segments + queryString;
+  } else if (!req.url.startsWith('/api')) {
+    // If request reached here without /api prefix
+    req.url = '/api' + (req.url.startsWith('/') ? req.url : '/' + req.url);
   }
   next();
 });
@@ -630,9 +644,14 @@ Customer Support: 7772809503
   return { success: sent, error: errorMsg, provider: providerUsed };
 }
 
-// ==========================================
-// API ROUTES
-// ==========================================
+// 0. API Health & Status check
+app.get(['/api', '/api/', '/api/health'], (_req, res) => {
+  res.json({
+    status: 'ok',
+    service: 'NisKart E-Commerce API',
+    timestamp: new Date().toISOString(),
+  });
+});
 
 // 1. Get complete catalog data + public payment settings
 app.get('/api/data', (_req, res) => {
@@ -1203,6 +1222,22 @@ app.post('/api/admin/orders/:id/resend-email', requireAdminAuth, async (req, res
   return res.json({ success: true, result });
 });
 
+// 404 handler for unmatched API routes
+app.use('/api', (req, res) => {
+  res.status(404).json({
+    error: `API endpoint not found: ${req.method} ${req.originalUrl || req.url}`,
+  });
+});
+
+// Global API error handler - guarantees JSON response on any unhandled error
+app.use((err: any, _req: express.Request, res: express.Response, _next: express.NextFunction) => {
+  console.error('Unhandled API Error:', err);
+  const status = typeof err?.status === 'number' && err.status >= 400 && err.status < 600 ? err.status : 500;
+  res.status(status).json({
+    error: err?.message || 'An internal server error occurred',
+  });
+});
+
 // Setup Vite middleware in dev or static files in production
 async function startServer() {
   const isProd = process.env.NODE_ENV === 'production';
@@ -1226,8 +1261,16 @@ async function startServer() {
   });
 }
 
-// Only start the standalone HTTP listener if not running in a serverless environment (e.g. Vercel)
-if (!IS_VERCEL) {
+// Start standalone HTTP server only when invoked directly as process entrypoint
+const isDirectCliExecution = Boolean(
+  process.argv[1] &&
+  (process.argv[1].endsWith('server.ts') || process.argv[1].endsWith('server.js')) &&
+  !process.env.VERCEL &&
+  !process.env.AWS_LAMBDA_FUNCTION_NAME &&
+  !process.env.NOW_REGION
+);
+
+if (isDirectCliExecution) {
   startServer();
 }
 

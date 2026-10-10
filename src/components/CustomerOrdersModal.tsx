@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Order } from '../types';
+import { apiRequest } from '../utils/apiClient';
 import { X, Package, Search, Phone, MapPin, Calendar, Clock, Loader2, ArrowRight } from 'lucide-react';
 
 interface CustomerOrdersModalProps {
@@ -23,9 +24,9 @@ export const CustomerOrdersModal: React.FC<CustomerOrdersModalProps> = ({
     setIsSearching(true);
     setSearchError(null);
     try {
-      const res = await fetch(`/api/customer-orders?query=${encodeURIComponent(searchQuery.trim())}`);
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Failed to search orders');
+      const data = await apiRequest<{ orders: Order[] }>(
+        `/api/customer-orders?query=${encodeURIComponent(searchQuery.trim())}`
+      );
       setSearchResults(data.orders || []);
     } catch (err: any) {
       setSearchError(err.message || 'Error looking up orders');
